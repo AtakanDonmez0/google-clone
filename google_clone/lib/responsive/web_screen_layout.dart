@@ -8,12 +8,26 @@ import 'package:google_clone/widgets/web/translation_buttons.dart';
 import '../widgets/search.dart';
 import '../widgets/web/web_footer.dart';
 
-class WebScreenLayout extends StatelessWidget {
-  const WebScreenLayout({Key? key}) : super(key: key);
+class WebScreenLayout extends StatefulWidget {
+  const WebScreenLayout({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => WebScreenLayoutState();
+}
+
+class WebScreenLayoutState extends State<WebScreenLayout> {
+  final TextEditingController textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    textEditingController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController = TextEditingController();
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
